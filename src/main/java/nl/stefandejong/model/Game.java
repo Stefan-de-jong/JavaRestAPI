@@ -1,14 +1,26 @@
 package nl.stefandejong.model;
 
+
+import javax.persistence.Entity;
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Game {
-    String id;
+
+    @OneToOne
+    private Stock stock;
+
+    @Id
+    @SequenceGenerator(name = "game_seq", initialValue = 1000)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "game_seq")
+    long id;
     String title;
     String publisher;
     String genre;
     int price;
 
-    public Game(String id, String title, String publisher, String genre, int price){
-        this.id = id;
+    public Game(String title, String publisher, String genre, int price){
         this.title = title;
         this.publisher = publisher;
         this.genre = genre;
@@ -17,7 +29,7 @@ public class Game {
 
     public Game() {}
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
