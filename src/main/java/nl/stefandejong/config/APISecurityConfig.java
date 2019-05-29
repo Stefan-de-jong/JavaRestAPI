@@ -14,7 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
 @EnableWebSecurity
-@Order(2)
+@Order(1)
 public class APISecurityConfig extends WebSecurityConfigurerAdapter {
     private ApiKeyRepository apiKeyRepository;
 
