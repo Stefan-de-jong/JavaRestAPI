@@ -22,16 +22,23 @@ public class GameController {
         return service.getAllGames();
     }
 
-    // ToDo meer requests uitwerken
-  /*  @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Game getGameById(@PathVariable String id) {
-        return service.getGame(id);
-    }*/
-
     @RequestMapping(value = "", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addGame(@RequestBody Game game) {
         service.addGame(game);
     }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+    public void deleteGame(@PathVariable long id){
+        service.deleteGame(id);
+    }
+
+
+    // ToDo meer soorten requests uitwerken
+
+  /*  @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Game getGameById(@PathVariable String id) {
+        return service.getGame(id);
+    }*/
 
 /*    @RequestMapping(value = "{genre}")
     public List<Game> getGamesByGenre(@PathVariable String genre) {
@@ -43,9 +50,6 @@ public class GameController {
         return service.getGamesByPublisher(publisher);
     }*/
 
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-    public void deleteGame(@PathVariable long id){
-        service.deleteGame(id);
-    }
+
 }
 

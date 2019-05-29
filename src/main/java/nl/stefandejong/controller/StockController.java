@@ -33,8 +33,4 @@ public class StockController {
     public Iterable<Stock> getAllStockItems() {
         return service.getAllStock();
     }
-
-
-
-
 }
