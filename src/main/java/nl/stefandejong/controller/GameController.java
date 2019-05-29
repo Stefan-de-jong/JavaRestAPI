@@ -23,8 +23,9 @@ public class GameController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addGame(@RequestBody Game game) {
+    public String addGame(@RequestBody Game game) {
         service.addGame(game);
+        return String.valueOf(game.getId());
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)

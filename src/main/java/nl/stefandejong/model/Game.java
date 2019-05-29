@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = "title")})
 public class Game {
 
     @OneToOne
